@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light theme: Ivory & Ink with deep antique gold */
+  :root {
+    --background: 40 30% 95%;
+    --foreground: 20 14% 7%;
+
+    --card: 40 33% 98%;
+    --card-foreground: 20 14% 7%;
+
+    --popover: 40 33% 98%;
+    --popover-foreground: 20 14% 7%;
+
+    --primary: 36 55% 34%;
+    --primary-foreground: 40 30% 96%;
+
+    --secondary: 38 22% 90%;
+    --secondary-foreground: 20 14% 10%;
+
+    --muted: 38 22% 92%;
+    --muted-foreground: 30 8% 38%;
+
+    --accent: 38 40% 90%;
+    --accent-foreground: 36 55% 28%;
+
+    --destructive: 0 60% 42%;
+    --destructive-foreground: 40 30% 96%;
+
+    --border: 38 18% 82%;
+    --input: 38 18% 82%;
+    --ring: 36 55% 34%;
+
+    --radius: 0.5rem;
+
+    --editor-bg: #fbf9f4;
+    --editor-gutter: #f1ede3;
+    --editor-line-highlight: #e8e1d0;
+  }
+
+  /* Dark theme: Obsidian & Gold */
+  .dark {
+    --background: 240 5% 4%;
+    --foreground: 43 35% 94%;
+
+    --card: 240 6% 7%;
+    --card-foreground: 43 35% 94%;
+
+    --popover: 240 6% 7%;
+    --popover-foreground: 43 35% 94%;
+
+    --primary: 39 46% 61%;
+    --primary-foreground: 240 6% 5%;
+
+    --secondary: 240 6% 11%;
+    --secondary-foreground: 43 35% 94%;
+
+    --muted: 240 5% 10%;
+    --muted-foreground: 36 5% 56%;
+
+    --accent: 39 25% 14%;
+    --accent-foreground: 39 46% 72%;
+
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 43 35% 94%;
+
+    --border: 240 4% 15%;
+    --input: 240 4% 15%;
+    --ring: 39 46% 61%;
+
+    --editor-bg: #0d0d0f;
+    --editor-gutter: #111113;
+    --editor-line-highlight: #c9a96e14;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1,
+  h2 {
+    @apply font-serif tracking-tight;
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.28);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Panels: quiet, hairline borders instead of heavy blur */
+.glass-panel {
+  background: hsl(var(--card) / 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid hsl(var(--border));
+}
+
+/* Legacy glow helpers kept so existing components do not break.
+   They are now a soft, low-opacity gold halo. */
+.glow-indigo,
+.glow-purple {
+  box-shadow: 0 0 40px -12px hsl(var(--primary) / 0.25);
+}
+
+/* Luxury utilities */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: hsl(var(--primary));
+}
+.gold-rule {
+  height: 1px;
+  width: 3rem;
+  background: hsl(var(--primary));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

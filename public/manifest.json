@@ -1,0 +1,16 @@
+{
+  "name": "CompilerLens - Interactive Compiler Visualizer",
+  "short_name": "CompilerLens",
+  "description": "AI-powered educational compiler design visualizer for MiniLang",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
