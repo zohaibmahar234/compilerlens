@@ -72,7 +72,7 @@ export function CodeEditor() {
           [/[{}()\[\]]/, "@brackets"],
           [/[;,]/, "delimiter"],
           [
-            /@operators/,
+            /==|!=|<=|>=|&&|\|\||[=<>!+\-*\/%]/,
             {
               cases: {
                 "@operators": "operator",
